@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<object name="person" meta_type="Dexterity FTI" i18n:domain="plone"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title" i18n:translate="">Person</property>
+ <property name="description" i18n:translate="">A person</property>
+ <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+ <property name="factory">person</property>
+ <property name="add_view_expr">string:${folder_url}/++add++person</property>
+ <property name="link_target"></property>
+ <property name="immediate_view">view</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types"/>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">view</property>
+ <property name="view_methods">
+  <element value="view"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <property name="add_permission">cmf.AddPortalContent</property>
+ <property name="klass">plone.dexterity.content.Container</property>
+ <property name="behaviors">
+  <element value="plone.app.content.interfaces.INameFromTitle"/>
+ </property>
+ <property name="schema"></property>
+ <property
+    name="model_source">&lt;model xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema"&gt;
+    &lt;schema&gt;
+      &lt;field name="title" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Your full name&lt;/description&gt;
+        &lt;title&gt;Name&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="designation" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;How you want to be called&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Designation&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="e_mail" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Your eletronic mail&lt;/description&gt;
+        &lt;title&gt;E-Mail&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="identity" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Number of your ID (for Brazilians)&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;ID&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="organ_dispatcher" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Organ dispatcher of your ID (for Brazilians)&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Organ dispatcher&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="cpf" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;CPF number (for Brazilians)&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;CPF&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="gender" type="zope.schema.Choice"&gt;
+        &lt;description&gt;Your gender&lt;/description&gt;
+        &lt;title&gt;Gender&lt;/title&gt;
+        &lt;values&gt;
+          &lt;element&gt;Male&lt;/element&gt;
+          &lt;element&gt;Female&lt;/element&gt;
+        &lt;/values&gt;
+      &lt;/field&gt;
+      &lt;field name="passaport_number" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;The number of your passport (for non-Brazilians)&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Passaport Number&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="name_in_the_passaport" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Name as written on passport (for non-Brazilians)&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Name in the passaport&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="organization" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Name of your Organization, if any&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Organization&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="site_of_organization" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Site of your Organization, if any&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Site of Organization&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="picture" type="plone.namedfile.field.NamedBlobFile"&gt;
+        &lt;description&gt;Your photo&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Picture&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="need_special_care" type="zope.schema.Text"&gt;
+        &lt;description&gt;You need something special&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Need special care ?&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="twitter" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Your twitter&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Twitter&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="facebook" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Your Facebook&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Facebook&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="personal_website" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Your personal URL, if any&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Personal Website&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="are_you_a_student_or_apyb_associate" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;For Brazilians&lt;/description&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Are you a student or ApyB associate ?&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="address" type="zope.schema.Text"&gt;
+        &lt;description&gt;Where you call my home&lt;/description&gt;
+        &lt;title&gt;Address&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="city" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Your City&lt;/description&gt;
+        &lt;title&gt;City&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="state" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Your State&lt;/description&gt;
+        &lt;title&gt;State&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="zip" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Zip Code of your address&lt;/description&gt;
+        &lt;title&gt;Zip&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="country" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;The country where do you live&lt;/description&gt;
+        &lt;title&gt;Country&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="nationality" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;What country are you a citizen ?&lt;/description&gt;
+        &lt;title&gt;Nationality&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="phone" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;+International Code (Area Code) Number&lt;/description&gt;
+        &lt;title&gt;Phone&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="cellphone" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;+International Code (Area Code) Number&lt;/description&gt;
+        &lt;title&gt;Cellphone&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="do_you_want_to_participate_in_the_training" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;Training&lt;/description&gt;
+        &lt;title&gt;Do you want to participate in the training ?&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="do_you_want_to_participate_in_the_pos_conference_sprint" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;Sprint in Brasilia&lt;/description&gt;
+        &lt;title&gt;Do you want to participate in the pos-conference Sprint ?&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="do_you_want_to_participate_in_the_beach_sprint" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;Beach Sprint in Jo&amp;#227;o Pessoa&lt;/description&gt;
+        &lt;title&gt;Do you want to participate in the beach Sprint ?&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="do_you_want_to_participate_in_the_event_spanky_party" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;Party&lt;/description&gt;
+        &lt;title&gt;Do you want to participate in the Event Spanky Party ?&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="if_you_come_with_companions_how_many_will_be" type="zope.schema.TextLine"&gt;
+        &lt;description&gt;Do you come with friends or relatives ?&lt;/description&gt;
+        &lt;title&gt;If you come with companions, how many will be ?&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="do_you_have_any_problem_to_share_your_room" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;Do you want a room mate ?&lt;/description&gt;
+        &lt;title&gt;Do you have any problem to share your room ?&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="code_of_conduct_of_the_event" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;Code of Conduct&lt;/description&gt;
+        &lt;title&gt;Read and agreed with the Code of Conduct of the event&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="paid" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;Internal Field&lt;/description&gt;
+        &lt;title&gt;Paid&lt;/title&gt;
+      &lt;/field&gt;
+    &lt;/schema&gt;
+  &lt;/model&gt;</property>
+ <property name="model_file"></property>
+ <property name="schema_policy">dexterity</property>
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="edit" to="@@edit"/>
+ <alias from="sharing" to="@@sharing"/>
+ <alias from="view" to="(selected layout)"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    description="" icon_expr="" link_target="" url_expr="string:${object_url}"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    description="" icon_expr="" link_target=""
+    url_expr="string:${object_url}/edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+</object>
